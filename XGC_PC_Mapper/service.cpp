@@ -11,6 +11,7 @@
 #include <thread>
 #include "keynames.h"
 #include "tray_icon.h"
+#include "resource.h"
 
 using json = nlohmann::json;
 
@@ -39,6 +40,13 @@ std::vector<KeyboardInputThread::KeyMap> load_mappings(const std::string& path) 
 LRESULT CALLBACK TrayWndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR, int) {
+
+    HANDLE hMutex = CreateMutexW(NULL, FALSE, L"LQVCMapperServiceSingletonMutex");
+    if (GetLastError() == ERROR_ALREADY_EXISTS) {
+        //MessageBoxW(NULL, L"ViGEm Controller Service is already running.", L"Already running", MB_OK | MB_ICONEXCLAMATION);
+        return 0;
+    }
+
     // 1. Register a hidden window for tray messages
     WNDCLASSEX wc = { sizeof(wc) };
     wc.lpfnWndProc = TrayWndProc;
@@ -50,7 +58,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR, int) {
         HWND_MESSAGE, NULL, hInstance, NULL);
 
     // 2. Load an icon (see below for custom icon instructions)
-    HICON hIcon = LoadIcon(NULL, IDI_APPLICATION);
+   // HICON hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_MYICON));
+    HICON hIcon = (HICON)LoadImage(
+        hInstance, MAKEINTRESOURCE(IDI_MYICON), IMAGE_ICON,
+        GetSystemMetrics(SM_CXSMICON), GetSystemMetrics(SM_CYSMICON), LR_DEFAULTCOLOR);
 
     // 3. Create tray icon
     TrayIcon tray(hWnd, 1, L"LQ - Virtual Controller Service", hIcon);

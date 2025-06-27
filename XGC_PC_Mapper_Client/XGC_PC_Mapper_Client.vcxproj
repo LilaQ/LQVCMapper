@@ -28,6 +28,7 @@
     <ClInclude Include="..\XGC_PC_Mapper\controller_manager.h" />
     <ClInclude Include="..\XGC_PC_Mapper\keyboard_input.h" />
     <ClInclude Include="..\XGC_PC_Mapper\named_pipe_ipc.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

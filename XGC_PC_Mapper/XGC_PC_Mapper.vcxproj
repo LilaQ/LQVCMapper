@@ -146,10 +146,18 @@
     <ClInclude Include="keyboard_input.h" />
     <ClInclude Include="keynames.h" />
     <ClInclude Include="named_pipe_ipc.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="tray_icon.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\XGC_PC_Mapper_Client\LQVCMapperClient.rc" />
+    <ResourceCompile Include="..\XGC_PC_Mapper_Client\resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
