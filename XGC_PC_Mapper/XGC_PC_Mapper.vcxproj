@@ -24,7 +24,7 @@
     <ProjectGuid>{7834b8de-0818-4ebd-ad85-0982fbe919a7}</ProjectGuid>
     <RootNamespace>XGCPCMapper</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>LQVCMapperServer</ProjectName>
+    <ProjectName>LQVCMapper</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35931.197 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XGC_PC_Mapper", "XGC_PC_Mapper\XGC_PC_Mapper.vcxproj", "{7834B8DE-0818-4EBD-AD85-0982FBE919A7}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XGC_PC_Mapper_Client", "XGC_PC_Mapper_Client\XGC_PC_Mapper_Client.vcxproj", "{57E407E7-7026-46FF-B2A3-CA0628FEACFF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LQVCMapper", "XGC_PC_Mapper\XGC_PC_Mapper.vcxproj", "{7834B8DE-0818-4EBD-AD85-0982FBE919A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,14 +21,6 @@ Global
 		{7834B8DE-0818-4EBD-AD85-0982FBE919A7}.Release|x64.Build.0 = Release|x64
 		{7834B8DE-0818-4EBD-AD85-0982FBE919A7}.Release|x86.ActiveCfg = Release|Win32
 		{7834B8DE-0818-4EBD-AD85-0982FBE919A7}.Release|x86.Build.0 = Release|Win32
-		{57E407E7-7026-46FF-B2A3-CA0628FEACFF}.Debug|x64.ActiveCfg = Debug|x64
-		{57E407E7-7026-46FF-B2A3-CA0628FEACFF}.Debug|x64.Build.0 = Debug|x64
-		{57E407E7-7026-46FF-B2A3-CA0628FEACFF}.Debug|x86.ActiveCfg = Debug|Win32
-		{57E407E7-7026-46FF-B2A3-CA0628FEACFF}.Debug|x86.Build.0 = Debug|Win32
-		{57E407E7-7026-46FF-B2A3-CA0628FEACFF}.Release|x64.ActiveCfg = Release|x64
-		{57E407E7-7026-46FF-B2A3-CA0628FEACFF}.Release|x64.Build.0 = Release|x64
-		{57E407E7-7026-46FF-B2A3-CA0628FEACFF}.Release|x86.ActiveCfg = Release|Win32
-		{57E407E7-7026-46FF-B2A3-CA0628FEACFF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -41,6 +41,24 @@ LRESULT CALLBACK TrayWndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR, int) {
 
+    // --- HANDLE CLI ARGS FIRST ---
+    int argc = 0;
+    LPWSTR* argv = CommandLineToArgvW(GetCommandLineW(), &argc);
+    if (argc > 1) {
+        std::wstring wcmd;
+        for (int i = 1; i < argc; ++i) {
+            if (i > 1) wcmd += L" ";
+            wcmd += argv[i];
+        }
+        int size_needed = WideCharToMultiByte(CP_UTF8, 0, wcmd.c_str(), -1, NULL, 0, NULL, NULL);
+        std::string cmd(size_needed - 1, 0);
+        WideCharToMultiByte(CP_UTF8, 0, wcmd.c_str(), -1, &cmd[0], size_needed, NULL, NULL);
+
+        std::string response = pipe_send_command(cmd);
+        //MessageBoxA(NULL, response.c_str(), "Response", MB_OK);
+        return 0;
+    }
+
     HANDLE hMutex = CreateMutexW(NULL, FALSE, L"LQVCMapperServiceSingletonMutex");
     if (GetLastError() == ERROR_ALREADY_EXISTS) {
         //MessageBoxW(NULL, L"ViGEm Controller Service is already running.", L"Already running", MB_OK | MB_ICONEXCLAMATION);
