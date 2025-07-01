@@ -112,7 +112,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>ViGEmClient.lib;setupapi.lib;user32.lib;shell32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\LilaQ\Desktop\ViGEmClient\lib\debug\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\LilaQ\Desktop\ViGEmClient\lib\debug\x64;C:\Users\LilaQ\Desktop\ViGEmClient\lib\release\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -131,14 +131,15 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ViGEmClient.lib;setupapi.lib;user32.lib;shell32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\LilaQ\Desktop\ViGEmClient\lib\debug\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ViGEmClient.lib;setupapi.lib;user32.lib;shell32.lib;Xinput.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\LilaQ\Desktop\ViGEmClient\lib\release\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="controller_manager.cpp" />
     <ClCompile Include="keyboard_input.cpp" />
     <ClCompile Include="named_pipe_ipc.cpp" />
+    <ClCompile Include="real_controller_monitor.cpp" />
     <ClCompile Include="service.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +147,7 @@
     <ClInclude Include="keyboard_input.h" />
     <ClInclude Include="keynames.h" />
     <ClInclude Include="named_pipe_ipc.h" />
+    <ClInclude Include="real_controller_monitor.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="tray_icon.h" />
   </ItemGroup>

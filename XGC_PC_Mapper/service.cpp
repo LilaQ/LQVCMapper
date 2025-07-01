@@ -86,14 +86,13 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR, int) {
 
     // 4. Start your service logic in a thread
     std::thread service_thread([&] {
-        ControllerManager controllers;
-        controllers.activate_n(1);
+        controller_manager.activate_n(1);
 
         auto mappings = load_mappings("mappings.json");
 
         KeyboardInputThread kb_thread(
             mappings,
-            [&](int idx, std::map<std::string, bool> btns) { controllers.update_buttons(idx, btns); }
+            [&](int idx, std::map<std::string, bool> btns) { controller_manager.update_buttons(idx, btns); }
         );
 
         auto handle_command = [&](const std::string& cmd) -> std::string {
@@ -102,23 +101,23 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR, int) {
             iss >> token;
             if (token == "status") {
                 std::ostringstream oss;
-                auto s = controllers.status();
+                auto s = controller_manager.status();
                 for (size_t i = 0; i < s.size(); ++i)
                     oss << "Controller " << (i + 1) << ": " << (s[i] ? "Active" : "Inactive") << "\n";
                 return oss.str();
             }
             else if (token == "stop") {
-                controllers.stop_all();
+                controller_manager.stop_all();
                 return "All controllers stopped\n";
             }
             else if (token == "start") {
                 int n = 1; iss >> n;
-                controllers.activate_n(n);
-                return "Started " + std::to_string(controllers.active_count()) + " controller(s)\n";
+                controller_manager.activate_n(n);
+                return "Started " + std::to_string(controller_manager.active_count()) + " controller(s)\n";
             }
             else if (token == "add") {
-                controllers.add_one();
-                return "Now " + std::to_string(controllers.active_count()) + " controller(s) active\n";
+                controller_manager.add_one();
+                return "Now " + std::to_string(controller_manager.active_count()) + " controller(s) active\n";
             }
             return "Unknown command\n";
             };

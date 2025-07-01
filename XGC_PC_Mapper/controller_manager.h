@@ -20,7 +20,11 @@ public:
     void update_buttons(int idx, const std::map<std::string, bool>& btns);
     std::vector<bool> status() const;
     int active_count() const;
+    int desired_virtual_count();
 private:
     PVIGEM_CLIENT client_;
     std::vector<ControllerInstance> ctrls_;
+    int desired_virtual_count_ = 0;
 };
+
+extern ControllerManager controller_manager;
